@@ -17,13 +17,13 @@ const Home = () => {
     <>
       <Head>
         <title>
-          Inovar Climatização - Empresa que presta serviços de venda, instalação
-          e manutenção de ar condicionados
+          Inovar Climatização - Empresa que presta serviços de instalação e
+          manutenção de ar condicionados
         </title>
         <meta
           name="descrição"
-          content="Inovar Climatização - Empresa que presta serviços de venda, instalação
-          e manutenção de ar condicionados"
+          content="Inovar Climatização - Empresa que presta serviços de instalação e
+          manutenção de ar condicionados"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
