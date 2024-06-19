@@ -18,7 +18,7 @@ export default function Footer() {
                 className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
               >
                 <Image
-                  src="/img/inovar-logo.jpg"
+                  src="/img/inovar-logo.webp"
                   alt="N"
                   width="2500"
                   height="350"

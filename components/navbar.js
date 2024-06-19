@@ -17,11 +17,11 @@ const Navbar = () => {
                 <Link href="/">
                   <span>
                     <Image
-                      src="/img/inovar-logo.jpg"
+                      src="/img/inovar-logo.webp"
                       alt="N"
                       width="250"
                       height="250"
-                      className="w-40 mix-blend-multiply contrast-100	"
+                      className="w-40	"
                     />
                   </span>
                 </Link>

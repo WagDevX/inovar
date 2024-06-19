@@ -7,4 +7,22 @@
   body {
     @apply dark:bg-trueGray-900;
   }
+
+  .quoteheader {
+    -webkit-clip-path: ellipse(60% 75% at 50% 22%);
+    clip-path: ellipse(60% 75% at 50% 22%);
+    background-image: url("/images/waveback.jpg");
+    background-size: 100%;
+    background-position: 0%;
+  }
+
+  .firstquoteheader {
+    -webkit-clip-path: ellipse(60% 75% at 50% 22%);
+    clip-path: ellipse(60% 75% at 50% 22%);
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+    --tw-gradient-from: #eff6ff var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(239 246 255 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: #93c5fd var(--tw-gradient-to-position);
+  }
 }
