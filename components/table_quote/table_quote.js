@@ -13,6 +13,8 @@ export default function TableQuote() {
   const [itemQuantity, setItemQuantity] = useState("");
   const [itemPrice, setItemPrice] = useState("");
   const [totalSum, setTotalSum] = useState();
+  const [discount, setDiscount] = useState();
+  const [discountValue, setDiscountValue] = useState();
 
   function addItemToQuote() {
     if (
@@ -35,6 +37,7 @@ export default function TableQuote() {
       itemDescription: itemDescription,
       itemQuantity: itemQuantity,
       itemPrice: itemPrice,
+      discount: discountValue,
     };
     setTable((prev) => [...prev, item]);
     setItemDescription("");
@@ -46,20 +49,37 @@ export default function TableQuote() {
     setTable((prev) => prev.filter((_, i) => i !== index));
   }
 
+  function calculateDiscount() {
+    console.log("calculando desconto");
+    console.log(discount);
+    if (table.length > 0) {
+      const total = table.reduce((acomulator, dado) => {
+        return (
+          parseFloat(dado.itemPrice.replace(",", ".")) *
+            parseInt(dado.itemQuantity) +
+          acomulator
+        );
+      }, 0);
+
+      const discountValue = parseFloat(discount);
+      const discountCalc = (parseFloat(total) * discountValue) / 100;
+      setDiscountValue(discountCalc);
+    }
+  }
+
+  useEffect(() => {
+    calculateDiscount();
+  }, [discount, table]);
+
   useEffect(() => {
     setTotalSum(
-      table
-        .reduce((acomulator, dado) => {
-          return (
-            parseFloat(dado.itemPrice.replace(",", ".")) *
-              parseInt(dado.itemQuantity) +
-            acomulator
-          );
-        }, 0)
-        .toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
-        })
+      table.reduce((acomulator, dado) => {
+        return (
+          parseFloat(dado.itemPrice.replace(",", ".")) *
+            parseInt(dado.itemQuantity) +
+          acomulator
+        );
+      }, 0)
     );
   }, [table]);
 
@@ -187,6 +207,23 @@ export default function TableQuote() {
             required
           />
         </div>
+        <div>
+          <label
+            for="discount"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Desconto
+          </label>
+          <input
+            value={discount}
+            onChange={(ev) => setDiscount(ev.target.value)}
+            type="number"
+            id="discount"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Porcentagem de desconto"
+            required
+          />
+        </div>
       </div>
       <button
         onClick={() => addItemToQuote()}
@@ -272,6 +309,25 @@ export default function TableQuote() {
                   </td>
                 </tr>
               ))}
+            {discount != "" && discount != 0 && (
+              <tr className="bg-blue-600">
+                <th
+                  colSpan={3}
+                  scope="row"
+                  className="px-6 py-4 font-extrabold text-lg text-center text-white whitespace-nowrap dark:text-white"
+                >
+                  DESCONTO
+                </th>
+                <td className="px-6 py-4 font-extrabold text-lg text-white whitespace-nowrap dark:text-white">
+                  -
+                  {discountValue?.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </td>
+                <td></td>
+              </tr>
+            )}
             <tr className="bg-blue-600">
               <th
                 colSpan={3}
@@ -281,10 +337,15 @@ export default function TableQuote() {
                 TOTAL
               </th>
               <td className="px-6 py-4 font-extrabold text-xl text-white whitespace-nowrap dark:text-white">
-                {totalSum?.toLocaleString("pt-br", {
-                  style: "currency",
-                  currency: "BRL",
-                })}
+                {discount != 0 && discount != "" && discount != NaN
+                  ? (totalSum - discountValue).toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })
+                  : totalSum?.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
               </td>
               <td></td>
             </tr>
@@ -293,7 +354,7 @@ export default function TableQuote() {
       </div>
 
       <div className="hidden">
-        <QuoteToPrint ref={quoteToPrintRef} dados={table} />
+        <QuoteToPrint ref={quoteToPrintRef} dados={table} disc={discount} />
       </div>
       <ReactToPrint
         trigger={() => (

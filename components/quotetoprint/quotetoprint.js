@@ -9,18 +9,24 @@ export class QuoteToPrint extends React.PureComponent {
     const { dados } = this.props;
     const date = new Date();
 
-    let total = dados
-      .reduce((acomulator, dado) => {
+    let total = dados.reduce((acomulator, dado) => {
+      return (
+        parseFloat(dado.itemPrice.replace(",", ".")) *
+          parseInt(dado.itemQuantity) +
+        acomulator
+      );
+    }, 0);
+
+    let discount =
+      (dados.reduce((acomulator, dado) => {
         return (
           parseFloat(dado.itemPrice.replace(",", ".")) *
             parseInt(dado.itemQuantity) +
           acomulator
         );
-      }, 0)
-      .toLocaleString("pt-br", {
-        style: "currency",
-        currency: "BRL",
-      });
+      }, 0) *
+        this.props.disc) /
+      100;
 
     return (
       <>
@@ -120,8 +126,8 @@ export class QuoteToPrint extends React.PureComponent {
             </div>
 
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
-              <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-                <thead className="text-xs text-white uppercase bg-blue-600 dark:text-white">
+              <table className="w-full text-sm text-left text-black dark:text-blue-100">
+                <thead className="text-xs text-black uppercase bg-blue-400 dark:text-white">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Descrição do Produto/Serviço
@@ -143,10 +149,10 @@ export class QuoteToPrint extends React.PureComponent {
                 <tbody>
                   {dados.length > 0 &&
                     dados.map((m) => (
-                      <tr className="bg-blue-500 border-b border-blue-400">
+                      <tr className="bg-blue-300 border-b border-gray-600 ">
                         <th
                           scope="row"
-                          className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100"
+                          className="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-blue-100"
                         >
                           {m.itemDescription}
                         </th>
@@ -170,16 +176,37 @@ export class QuoteToPrint extends React.PureComponent {
                         </td>
                       </tr>
                     ))}
-                  <tr className="bg-blue-600">
+                  {this.props.disc != "" && this.props.disc != 0 && (
+                    <tr className="bg-blue-400">
+                      <th
+                        colSpan={3}
+                        scope="row"
+                        className="px-6 py-4 font-extrabold text-lg text-center text-black whitespace-nowrap "
+                      >
+                        DESCONTO
+                      </th>
+                      <td className="px-6 py-4 font-extrabold text-lg text-black whitespace-nowrap ">
+                        -
+                        {discount.toLocaleString("pt-br", {
+                          style: "currency",
+                          currency: "BRL",
+                        })}
+                      </td>
+                    </tr>
+                  )}
+                  <tr className="bg-blue-400">
                     <th
                       colSpan={3}
                       scope="row"
-                      className="px-6 py-4 font-extrabold text-xl text-center text-white whitespace-nowrap "
+                      className="px-6 py-4 font-extrabold text-xl text-center text-black whitespace-nowrap "
                     >
                       TOTAL
                     </th>
-                    <td className="px-6 py-4 font-extrabold text-xl text-white whitespace-nowrap ">
-                      {total}
+                    <td className="px-6 py-4 font-extrabold text-xl text-black whitespace-nowrap ">
+                      {(total - discount).toLocaleString("pt-br", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
                     </td>
                   </tr>
                 </tbody>
