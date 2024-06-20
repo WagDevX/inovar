@@ -7,20 +7,43 @@ export default function TableQuote() {
   const [table, setTable] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [cellPhone, setCellPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [itemQuantity, setItemQuantity] = useState("");
   const [itemPrice, setItemPrice] = useState("");
   const [totalSum, setTotalSum] = useState();
 
   function addItemToQuote() {
+    if (
+      !firstName ||
+      !lastName ||
+      !cellPhone ||
+      !address ||
+      !itemDescription ||
+      !itemQuantity ||
+      !itemPrice
+    ) {
+      alert("Preencha todos os campos");
+      return;
+    }
     const item = {
       firstName: firstName,
       lastName: lastName,
+      cellPhone: cellPhone,
+      address: address,
       itemDescription: itemDescription,
       itemQuantity: itemQuantity,
       itemPrice: itemPrice,
     };
     setTable((prev) => [...prev, item]);
+    setItemDescription("");
+    setItemQuantity("");
+    setItemPrice("");
+  }
+
+  function removeItemFromQuote(index) {
+    setTable((prev) => prev.filter((_, i) => i !== index));
   }
 
   useEffect(() => {
@@ -81,6 +104,40 @@ export default function TableQuote() {
         </div>
         <div>
           <label
+            for="cellphone"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Cliente: Contato
+          </label>
+          <input
+            value={cellPhone}
+            onChange={(ev) => setCellPhone(ev.target.value)}
+            type="text"
+            id="cellphone"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Telefone/Celular"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="address"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Cliente: Endereço
+          </label>
+          <input
+            value={address}
+            onChange={(ev) => setAddress(ev.target.value)}
+            type="text"
+            id="address"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Endereço"
+            required
+          />
+        </div>
+        <div>
+          <label
             for="item_name"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
@@ -123,7 +180,7 @@ export default function TableQuote() {
           <input
             value={itemPrice}
             onChange={(ev) => setItemPrice(ev.target.value)}
-            type="price"
+            type="number"
             id="item_price"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Preço do item"
@@ -157,6 +214,7 @@ export default function TableQuote() {
                 {" "}
                 Preço final
               </th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -190,6 +248,28 @@ export default function TableQuote() {
                       currency: "BRL",
                     })}
                   </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        removeItemFromQuote(index);
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-red-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </td>
                 </tr>
               ))}
             <tr className="bg-blue-600">
@@ -206,6 +286,7 @@ export default function TableQuote() {
                   currency: "BRL",
                 })}
               </td>
+              <td></td>
             </tr>
           </tbody>
         </table>

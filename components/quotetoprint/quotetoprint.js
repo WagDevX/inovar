@@ -24,7 +24,7 @@ export class QuoteToPrint extends React.PureComponent {
 
     return (
       <>
-        <div className="canvas_div_pdf h-[1600px] w-[1184px] bg-white">
+        <div className="canvas_div_pdf h-[1600px] w-[1184px] bg-white ">
           <div className="quoteheader flex bg-blue-900 justify-center h-[400px]">
             <div className="firstquoteheader grid justify-items-center bg-gradient-to-b  h-[200px] w-[1184px] from-blue-50 to-blue-300 pt-2">
               <div className="relative">
@@ -73,7 +73,7 @@ export class QuoteToPrint extends React.PureComponent {
                   </dd>
                 </div>
               </dl>
-              <dl className="max-w-md text-gray-900 divide-y divide-gray-200 dark:divide-gray-700 mt-5">
+              <dl className="max-w-xl text-gray-900 divide-y divide-gray-200 dark:divide-gray-700 mt-5">
                 <div className="flex flex-col pb-3">
                   <dt className="mb-1 text-gray-500 md:text-md dark:text-gray-400">
                     CONTATO
@@ -90,13 +90,31 @@ export class QuoteToPrint extends React.PureComponent {
                     45.849.818/0001-11 IE: ISENTO
                   </dd>
                 </div>
-                <div className="flex flex-col pt-3">
+                <div className="flex flex-col pt-3 pb-3">
                   <dt className="mb-1 text-gray-500 md:text-md dark:text-gray-400">
                     DATA DE EMISSÃO
                   </dt>
                   <dd className="text-md font-semibold">
                     {date.toLocaleDateString({ options: "dd/mm/yyyy" })}
                   </dd>
+                </div>
+                <div className="flex gap-20 ">
+                  <div className="flex flex-col pt-3">
+                    <dt className="mb-1 text-gray-500 md:text-md dark:text-gray-400">
+                      TELEFONE
+                    </dt>
+                    <dd className="text-md font-semibold">
+                      {dados[0]?.cellPhone}
+                    </dd>
+                  </div>
+                  <div className="flex flex-col pt-3">
+                    <dt className="mb-1 text-gray-500 md:text-md dark:text-gray-400">
+                      ENDEREÇO
+                    </dt>
+                    <dd className="text-md font-semibold">
+                      {dados[0]?.address}
+                    </dd>
+                  </div>
                 </div>
               </dl>
             </div>
