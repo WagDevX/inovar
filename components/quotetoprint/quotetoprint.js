@@ -125,8 +125,8 @@ export class QuoteToPrint extends React.PureComponent {
               </dl>
             </div>
 
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
-              <table className="w-full text-sm text-left text-black dark:text-blue-100">
+            <div className="relative  over shadow-md sm:rounded-lg mt-10">
+              <table className="w-full  text-sm text-left text-black dark:text-blue-100">
                 <thead className="text-xs text-black uppercase bg-blue-400 dark:text-white">
                   <tr>
                     <th scope="col" className="px-6 py-3">
@@ -152,7 +152,7 @@ export class QuoteToPrint extends React.PureComponent {
                       <tr className="bg-blue-300 border-b border-gray-600 ">
                         <th
                           scope="row"
-                          className="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-blue-100"
+                          className="px-6 py-4 max-w-[600px] font-medium text-black text-wrap  dark:text-blue-100"
                         >
                           {m.itemDescription}
                         </th>

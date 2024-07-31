@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Container from "./container";
-import heroImg from "../public/img/hero.png";
+import airRepair from "../public/logos/air_repair.jpg";
+import greeLogo from "../public/logos/gree_logo.png";
+import lgLogo from "../public/logos/lg_logo.png";
+import fujitsuLogo from "../public/logos/fujitsu_logo.png";
+import elginLogo from "../public/logos/elgin_logo.png";
+import daikinLogo from "../public/logos/daikin_logo.png";
+import mideaLogo from "../public/logos/midea_logo.png";
 
 const Hero = () => {
   return (
@@ -49,11 +55,11 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
-          <div className="">
+          <div className="rounded-full overflow-hidden">
             <Image
-              src={heroImg}
-              width="1900"
-              height="700"
+              src={airRepair}
+              width="700"
+              height="500"
               className={"object-cover"}
               alt="Hero Illustration"
               loading="eager"
@@ -69,21 +75,72 @@ const Hero = () => {
             <span className="text-indigo-600">seguintes</span> marcas
           </div>
 
-          <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
+          <div className="flex flex-wrap justify-center items-center gap-5 mt-10 md:justify-around">
             <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <AmazonLogo />
+              <Image
+                src={greeLogo}
+                width="170"
+                height="100"
+                className={"object-cover"}
+                alt="Lg Logo"
+                loading="eager"
+                placeholder="blur"
+              />
             </div>
             <div className="text-gray-400 dark:text-gray-400">
-              <VerizonLogo />
+              <Image
+                src={lgLogo}
+                width="170"
+                height="100"
+                className={"object-cover"}
+                alt="Lg Logo"
+                loading="eager"
+                placeholder="blur"
+              />
             </div>
             <div className="text-gray-400 dark:text-gray-400">
-              <MicrosoftLogo />
+              <Image
+                src={fujitsuLogo}
+                width="170"
+                height="100"
+                className={"object-cover"}
+                alt="Lg Logo"
+                loading="eager"
+                placeholder="blur"
+              />
             </div>
             <div className="pt-1 text-gray-400 dark:text-gray-400">
-              <NetflixLogo />
+              <Image
+                src={elginLogo}
+                width="170"
+                height="100"
+                className={"object-cover"}
+                alt="Lg Logo"
+                loading="eager"
+                placeholder="blur"
+              />
             </div>
             <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <SonyLogo />
+              <Image
+                src={daikinLogo}
+                width="170"
+                height="100"
+                className={"object-cover"}
+                alt="Lg Logo"
+                loading="eager"
+                placeholder="blur"
+              />
+            </div>
+            <div className="pt-2 text-gray-400 dark:text-gray-400">
+              <Image
+                src={mideaLogo}
+                width="170"
+                height="100"
+                className={"object-cover"}
+                alt="Lg Logo"
+                loading="eager"
+                placeholder="blur"
+              />
             </div>
           </div>
         </div>
