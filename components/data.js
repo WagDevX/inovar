@@ -7,50 +7,50 @@ import {
   SunIcon,
 } from "@heroicons/react/24/solid";
 
-import benefitOneImg from "../public/img/benefit-one.png";
-import benefitTwoImg from "../public/img/benefit-two.png";
+import benefitOneImg from "../public/images/AC_Repair_.webp";
+import benefitTwoImg from "../public/images/elgin-ofertas-mobile.png";
 
 const benefitOne = {
-  title: "Principais benefícios",
-  desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  title: "Serviços de reparo",
+  desc: "Serviços de manutenção e higienização de ar condicionado, consertos de ar condicionado split.",
   image: benefitOneImg,
   bullets: [
     {
-      title: "Título 1",
-      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Higienização",
+      desc: "A higienização de ar condicionado é essencial para a saúde, evita doenças respiratórias, alergias e mau cheiro.",
       icon: <FaceSmileIcon />,
     },
     {
-      title: "Título 2",
-      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Manutenção",
+      desc: "A manutenção de ar condicionado é necessária para garantir o bom funcionamento do aparelho, evitando problemas futuros.",
       icon: <ChartBarSquareIcon />,
     },
     {
-      title: "Título 3",
-      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Consertos",
+      desc: "Consertos de ar condicionado em geral, mudança de local, troca de peças, reparos em geral.",
       icon: <CursorArrowRaysIcon />,
     },
   ],
 };
 
 const benefitTwo = {
-  title: "Mais benefícios",
-  desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  title: "Serviços de venda e instalação",
+  desc: "Pré-instalação, instalação e venda de equipamentos ar condicionado.",
   image: benefitTwoImg,
   bullets: [
     {
-      title: "Lreom ipsum dolor sit amet",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Pré-instalação",
+      desc: "Pré-instalação de ar condicionado, avaliação do ambiente, dimensionamento do equipamento.",
       icon: <DevicePhoneMobileIcon />,
     },
     {
-      title: "Lreom ipsum dolor sit amet",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Instalação",
+      desc: "Instalação de ar condicionado, instalação de split, instalações de 7000BTUs a 70000BTUs.",
       icon: <AdjustmentsHorizontalIcon />,
     },
     {
-      title: "Lreom ipsum dolor sit amet",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Venda e instalação",
+      desc: "Venda de ar condicionado, instalação de ar condicionado, venda de split, instalação de spli, serviço completo.",
       icon: <SunIcon />,
     },
   ],

@@ -8,7 +8,7 @@ export default function Footer() {
   const legal = ["Termos", "Privacidade", "Termos legais"];
   return (
     <div className="relative">
-      <Container>
+      <Container id="sobre">
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div>
@@ -28,10 +28,11 @@ export default function Footer() {
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              repudiandae, ad esse magnam consequatur rem obcaecati dolor iusto
-              repellat quos reprehenderit. Maxime sint doloribus unde eum dolore
-              fugiat soluta reprehenderit.
+              Rua dos Pioneiros, 144 - Centro-sul, Sorriso - MT 78.896-090
+              <br />
+              Contato - (66) 9624-1778 (66) 99618-3048
+              <br />
+              Atendimento - Segunda a sábado das 7h às 19h
             </div>
           </div>
 

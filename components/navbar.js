@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 
 const Navbar = () => {
-  const navigation = ["Produtos", "Serviços", "Preços", "Sobre nós"];
+  const navigation = ["Serviços", , "Sobre"];
 
   return (
     <div className="w-full">
@@ -81,7 +81,7 @@ const Navbar = () => {
             {navigation.map((menu, index) => (
               <li className="mr-3 nav__item" key={index}>
                 <Link
-                  href="/"
+                  href={`#${menu.toLowerCase()}`}
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
                   {menu}
@@ -93,7 +93,8 @@ const Navbar = () => {
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           <Link
-            href="/"
+            href="https://wa.link/oa54xf"
+            target="_blank"
             className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5"
           >
             Contato

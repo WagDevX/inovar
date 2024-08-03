@@ -18,8 +18,7 @@ const Orcamento = () => {
         </title>
         <meta
           name="descrição"
-          content="Inovar Climatização - Empresa que presta serviços de instalação e
-          manutenção de ar condicionados"
+          content="Inovar Climatização - Instalação e manutenção de ar condicionados, situada em Sorriso-MT Mato Grosso"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

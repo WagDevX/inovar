@@ -38,7 +38,7 @@ const Home = () => {
         instalação e manutenção de ar condicionados. Nossos técnicos são
         especializados e treinados para atender a todas as suas necessidades.
       </SectionTitle>
-      <Benefits data={benefitOne} />
+      <Benefits id="serviços" data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
       <SectionTitle pretitle="Asssita o vídeo" title="O que nós oferecemos?">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
